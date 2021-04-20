@@ -24,4 +24,20 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var typeLabel: UILabel!
     @IBOutlet var thumbnailImageView: UIImageView!
+    
+//    // The following is an alernative approach besides Interface Builder to add rounded corners to an image
+//    @IBOutlet var thumbnailImageView: UIImageView! {
+//        didSet {
+//            thumbnailImageView.layer.cornerRadius = 20.0
+//            thumbnailImageView.clipsToBounds = true // just like overflow: hidden
+//        }
+//    }
+    
+//    // The following makes the image circular
+//    @IBOutlet var thumbnailImageView: UIImageView! {
+//        didSet {
+//            thumbnailImageView.layer.cornerRadius = thumbnailImageView.bounds.width / 2
+//            thumbnailImageView.clipsToBounds = true
+//        }
+//    }
 }
