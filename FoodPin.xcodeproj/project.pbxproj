@@ -13,6 +13,7 @@
 		F29499DB262E4A1300558970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F29499DA262E4A1300558970 /* Assets.xcassets */; };
 		F29499DE262E4A1300558970 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29499DC262E4A1300558970 /* LaunchScreen.storyboard */; };
 		F29499E8262E4BFF00558970 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29499E7262E4BFF00558970 /* RestaurantTableViewController.swift */; };
+		F29499EB262E683D00558970 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29499EA262E683D00558970 /* RestaurantTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F29499DD262E4A1300558970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F29499DF262E4A1300558970 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F29499E7262E4BFF00558970 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
+		F29499EA262E683D00558970 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				F29499DC262E4A1300558970 /* LaunchScreen.storyboard */,
 				F29499DF262E4A1300558970 /* Info.plist */,
 				F29499E7262E4BFF00558970 /* RestaurantTableViewController.swift */,
+				F29499EA262E683D00558970 /* RestaurantTableViewCell.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29499EB262E683D00558970 /* RestaurantTableViewCell.swift in Sources */,
 				F29499D2262E4A1000558970 /* AppDelegate.swift in Sources */,
 				F29499D4262E4A1000558970 /* SceneDelegate.swift in Sources */,
 				F29499E8262E4BFF00558970 /* RestaurantTableViewController.swift in Sources */,
