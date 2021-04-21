@@ -27,6 +27,8 @@ class RestaurantTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.cellLayoutMarginsFollowReadableWidth = true
+        
         tableView.dataSource = dataSource
         
         // Remove the cell separator
@@ -40,7 +42,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     func configureDataSource() -> UITableViewDiffableDataSource<Section, String> {
-        let cellIdentifier = "datacell"
+        let cellIdentifier = "favoritecell"
         
         let dataSource = UITableViewDiffableDataSource<Section, String>(
             tableView: tableView, cellProvider: { tableView, indexPath, restaurantName in let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
@@ -60,6 +62,14 @@ class RestaurantTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Create an option menu as an action sheet
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+        
+        // Handle opening popover on tablets
+        if let popoverController = optionMenu.popoverPresentationController {
+            if let cell = tableView.cellForRow(at: indexPath) {
+                popoverController.sourceView = cell
+                popoverController.sourceRect = cell.bounds
+            }
+        }
         
         // Add actions to the menu
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
