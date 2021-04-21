@@ -87,12 +87,12 @@ class RestaurantTableViewController: UITableViewController {
         optionMenu.addAction(reserveAction)
         
         // Mark as favorite action
-        let favoriteAction = UIAlertAction(title: "Mark as favorite", style: .default, handler: { ( action: UIAlertAction!) -> Void in
+        let favoriteAction = UIAlertAction(title: self.restaurantIsFavorites[indexPath.row] ? "Remove from favorites" : "Mark as favorite", style: .default, handler: { ( action: UIAlertAction!) -> Void in
             
             let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
+            self.restaurantIsFavorites[indexPath.row] = self.restaurantIsFavorites[indexPath.row] ? false : true
+            cell?.accessoryType = self.restaurantIsFavorites[indexPath.row] ? .checkmark : .none
             cell?.tintColor = .systemYellow
-            self.restaurantIsFavorites[indexPath.row] = true
         })
         
         optionMenu.addAction(favoriteAction)
