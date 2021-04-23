@@ -39,6 +39,7 @@ class RestaurantTableViewController: UITableViewController {
         Restaurant(name: "CASK Pub and Kitchen", type: "Thai", location: "London", image: "cask", isFavorite: false)
     ]
 
+    // MARK: - View controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +57,7 @@ class RestaurantTableViewController: UITableViewController {
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
+    // MARK: -  UITableView Diffable Data Source
     func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant> {
         let cellIdentifier = "favoritecell"
         
@@ -74,6 +76,7 @@ class RestaurantTableViewController: UITableViewController {
         return dataSource
     }
     
+    // MARK: - UITableViewDelegate Protocol
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Create an option menu as an action sheet
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
