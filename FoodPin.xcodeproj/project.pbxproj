@@ -41,6 +41,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F27B2F03263268B000BFDA57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F29499E7262E4BFF00558970 /* RestaurantTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F27B2F04263268DD00BFDA57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F29499EA262E683D00558970 /* RestaurantTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F27B2F05263268FE00BFDA57 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F29499D7262E4A1000558970 /* Main.storyboard */,
+				F29499DC262E4A1300558970 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		F27B2F062632691700BFDA57 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F27B2F00263261BF00BFDA57 /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F29499C5262E4A1000558970 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +93,14 @@
 		F29499D0262E4A1000558970 /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				F27B2F062632691700BFDA57 /* Model */,
+				F27B2F05263268FE00BFDA57 /* Storyboard */,
+				F27B2F04263268DD00BFDA57 /* View */,
+				F27B2F03263268B000BFDA57 /* Controller */,
 				F29499D1262E4A1000558970 /* AppDelegate.swift */,
 				F29499D3262E4A1000558970 /* SceneDelegate.swift */,
-				F29499D7262E4A1000558970 /* Main.storyboard */,
 				F29499DA262E4A1300558970 /* Assets.xcassets */,
-				F29499DC262E4A1300558970 /* LaunchScreen.storyboard */,
 				F29499DF262E4A1300558970 /* Info.plist */,
-				F29499E7262E4BFF00558970 /* RestaurantTableViewController.swift */,
-				F29499EA262E683D00558970 /* RestaurantTableViewCell.swift */,
-				F27B2F00263261BF00BFDA57 /* Restaurant.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
