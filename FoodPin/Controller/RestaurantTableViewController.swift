@@ -146,7 +146,15 @@ class RestaurantTableViewController: UITableViewController {
             (action, sourceView, completionHandler) in
             
             let defaultText = "Just checking in at " + restaurant.name
-            let activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            
+            let activityController: UIActivityViewController
+            
+            // Use "if let" to verify if an optional contains a value or not
+            if let imageToShare = UIImage(named: restaurant.image) {
+                activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+            } else {
+                activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            }
             
             self.present(activityController, animated: true, completion: nil)
             completionHandler(true)
