@@ -180,4 +180,27 @@ class RestaurantTableViewController: UITableViewController {
         
         return swipeConfiguration
     }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let favoriteAction = UIContextualAction(style: .normal, title: "") {
+            (action, sourceView, completionHandler) in
+            
+            let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+            cell.heartImageView.isHidden = self.restaurants[indexPath.row].isFavorite
+            self.restaurants[indexPath.row].isFavorite = self.restaurants[indexPath.row].isFavorite ? false : true
+            
+            completionHandler(true)
+        }
+        
+        // Setting background color & icon for swipeable action
+        favoriteAction.backgroundColor = UIColor.systemYellow
+        let iconImage = self.restaurants[indexPath.row].isFavorite ? "heart.slash.fill" : "heart.fill"
+        favoriteAction.image = UIImage(systemName: iconImage)
+        
+        // Configure action as swipe action
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [favoriteAction])
+        
+        return swipeConfiguration
+    }
 }
