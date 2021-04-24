@@ -82,7 +82,7 @@
                                     <outlet property="nameLabel" destination="DfR-rl-8rq" id="3zP-00-BhZ"/>
                                     <outlet property="thumbnailImageView" destination="sOh-8f-WMo" id="mdL-Zb-U2h"/>
                                     <outlet property="typeLabel" destination="sLu-6U-4UA" id="WQ0-fL-afY"/>
-                                    <segue destination="dvg-t7-NhE" kind="show" id="mcq-u8-dUc"/>
+                                    <segue destination="dvg-t7-NhE" kind="show" identifier="showRestaurantDetail" id="mcq-u8-dUc"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoritecell" id="jYM-92-Sop" customClass="RestaurantTableViewCell" customModule="FoodPin" customModuleProvider="target">
@@ -149,7 +149,7 @@
                                     <outlet property="nameLabel" destination="6Yp-Cb-eMf" id="8vA-Kp-ovb"/>
                                     <outlet property="thumbnailImageView" destination="dar-cE-q99" id="SyF-Dm-rdR"/>
                                     <outlet property="typeLabel" destination="qhM-j8-yds" id="Lfe-ZA-W5c"/>
-                                    <segue destination="dvg-t7-NhE" kind="show" id="9J7-e0-IuU"/>
+                                    <segue destination="dvg-t7-NhE" kind="show" identifier="showRestaurantDetail" id="9J7-e0-IuU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -164,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="903.07692307692309" y="126.54028436018957"/>
         </scene>
-        <!--View Controller-->
+        <!--Restaurant Detail View Controller-->
         <scene sceneID="Aaw-JR-V5l">
             <objects>
-                <viewController id="dvg-t7-NhE" sceneMemberID="viewController">
+                <viewController id="dvg-t7-NhE" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GMt-pF-1Vy">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,6 +186,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2GI-Gz-7gj"/>
+                    <connections>
+                        <outlet property="restaurantImageView" destination="il3-BY-QUV" id="bAF-CR-rwP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YyA-1c-bgW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -211,7 +214,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mcq-u8-dUc"/>
+        <segue reference="9J7-e0-IuU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
