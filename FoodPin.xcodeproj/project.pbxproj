@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F25559CC26346C3A000AFD25 /* RestaurantDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25559CB26346C3A000AFD25 /* RestaurantDiffableDataSource.swift */; };
 		F27B2F01263261C000BFDA57 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27B2F00263261BF00BFDA57 /* Restaurant.swift */; };
 		F29499D2262E4A1000558970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29499D1262E4A1000558970 /* AppDelegate.swift */; };
 		F29499D4262E4A1000558970 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29499D3262E4A1000558970 /* SceneDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F25559CB26346C3A000AFD25 /* RestaurantDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDiffableDataSource.swift; sourceTree = "<group>"; };
 		F27B2F00263261BF00BFDA57 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F29499CE262E4A1000558970 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29499D1262E4A1000558970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				F27B2F00263261BF00BFDA57 /* Restaurant.swift */,
+				F25559CB26346C3A000AFD25 /* RestaurantDiffableDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				F29499EB262E683D00558970 /* RestaurantTableViewCell.swift in Sources */,
 				F29499D2262E4A1000558970 /* AppDelegate.swift in Sources */,
 				F29499D4262E4A1000558970 /* SceneDelegate.swift in Sources */,
+				F25559CC26346C3A000AFD25 /* RestaurantDiffableDataSource.swift in Sources */,
 				F29499E8262E4BFF00558970 /* RestaurantTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

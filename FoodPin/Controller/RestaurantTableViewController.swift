@@ -10,10 +10,6 @@ import UIKit
 class RestaurantTableViewController: UITableViewController {
     lazy var dataSource = configureDataSource()
     
-    enum Section {
-        case all
-    }
-    
     var restaurants: [Restaurant] = [
         Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "Hong Kong", image: "cafedeadend", isFavorite: false),
         Restaurant(name: "Homei", type: "Cafe", location: "Hong Kong", image:
@@ -59,10 +55,12 @@ class RestaurantTableViewController: UITableViewController {
     
     // MARK: -  UITableView Diffable Data Source
     func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant> {
-        let cellIdentifier = "favoritecell"
+        let cellIdentifier = "datacell"
         
-        let dataSource = UITableViewDiffableDataSource<Section, Restaurant>(
-            tableView: tableView, cellProvider: { tableView, indexPath, restaurant in let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
+        let dataSource = RestaurantDiffableDataSource(
+            tableView: tableView,
+            cellProvider: { tableView, indexPath, restaurant in
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
                 
                 cell.nameLabel.text = restaurant.name
                 cell.thumbnailImageView.image = UIImage(named: restaurant.image)
