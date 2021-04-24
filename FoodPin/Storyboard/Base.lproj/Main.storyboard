@@ -175,19 +175,51 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="il3-BY-QUV">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CYS-2U-e29">
+                                <rect key="frame" x="15" y="103" width="360" height="99"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5r-iO-KrV">
+                                        <rect key="frame" x="151.66666666666666" y="7.9999999999999982" width="56.666666666666657" height="26.333333333333329"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqg-LO-m73">
+                                        <rect key="frame" x="161.33333333333334" y="42.333333333333343" width="37.333333333333343" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-di-Uiy">
+                                        <rect key="frame" x="147.33333333333334" y="70.666666666666657" width="65.333333333333343" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="0.0" bottom="8" trailing="0.0"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UOn-ZY-hAa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="CYS-2U-e29" firstAttribute="top" secondItem="UOn-ZY-hAa" secondAttribute="top" constant="15" id="3kO-nR-Z60"/>
                             <constraint firstItem="il3-BY-QUV" firstAttribute="top" secondItem="GMt-pF-1Vy" secondAttribute="top" id="Ugi-ju-bBt"/>
+                            <constraint firstItem="CYS-2U-e29" firstAttribute="leading" secondItem="UOn-ZY-hAa" secondAttribute="leading" constant="15" id="enI-tR-wHc"/>
                             <constraint firstItem="il3-BY-QUV" firstAttribute="leading" secondItem="UOn-ZY-hAa" secondAttribute="leading" id="f9c-as-jdA"/>
                             <constraint firstAttribute="bottom" secondItem="il3-BY-QUV" secondAttribute="bottom" id="mUj-7b-nQ1"/>
+                            <constraint firstItem="UOn-ZY-hAa" firstAttribute="trailing" secondItem="CYS-2U-e29" secondAttribute="trailing" constant="15" id="x0G-v8-I0K"/>
                             <constraint firstItem="UOn-ZY-hAa" firstAttribute="trailing" secondItem="il3-BY-QUV" secondAttribute="trailing" id="yb4-r3-ojt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2GI-Gz-7gj"/>
                     <connections>
+                        <outlet property="infoStackView" destination="CYS-2U-e29" id="v8k-4Y-0An"/>
+                        <outlet property="locationLabel" destination="MIf-di-Uiy" id="fc9-LK-azS"/>
+                        <outlet property="nameLabel" destination="y5r-iO-KrV" id="xTP-hu-Pdj"/>
                         <outlet property="restaurantImageView" destination="il3-BY-QUV" id="bAF-CR-rwP"/>
+                        <outlet property="typeLabel" destination="Oqg-LO-m73" id="6nW-BJ-TGT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YyA-1c-bgW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

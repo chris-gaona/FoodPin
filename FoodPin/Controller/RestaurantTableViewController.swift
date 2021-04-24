@@ -215,7 +215,7 @@ class RestaurantTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 // as! operator is used to downcast to a custom class/controller
                 let destinationController = segue.destination as! RestaurantDetailViewController
-                destinationController.restaurantImageName = self.restaurants[indexPath.row].image
+                destinationController.restaurant = self.restaurants[indexPath.row]
             }
         }
     }
