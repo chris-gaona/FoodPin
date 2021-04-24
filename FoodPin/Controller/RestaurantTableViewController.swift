@@ -66,7 +66,7 @@ class RestaurantTableViewController: UITableViewController {
                 cell.thumbnailImageView.image = UIImage(named: restaurant.image)
                 cell.locationLabel.text = restaurant.location
                 cell.typeLabel.text = restaurant.type
-                cell.heartImageView.isHidden = restaurant.isFavorite ? false : true
+                cell.heartImageView.isHidden = self.restaurants[indexPath.row].isFavorite ? false : true
                 
                 return cell
             }
