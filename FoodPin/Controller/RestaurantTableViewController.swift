@@ -156,9 +156,24 @@ class RestaurantTableViewController: UITableViewController {
                 activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
             }
             
+            // Add popover support for ipad & ipod touch
+            if let popoverController = activityController.popoverPresentationController {
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    popoverController.sourceView = cell
+                    popoverController.sourceRect = cell.bounds
+                }
+            }
+            
             self.present(activityController, animated: true, completion: nil)
             completionHandler(true)
         }
+        
+        // Setting colors & icons for the swipeable actions
+        deleteAction.backgroundColor = UIColor.systemRed
+        deleteAction.image = UIImage(systemName: "trash")
+        
+        shareAction.backgroundColor = UIColor.systemOrange
+        shareAction.image = UIImage(systemName: "square.and.arrow.up")
         
         // Configure both actions as swipe actions
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
