@@ -39,6 +39,9 @@ class RestaurantTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Use large title in the navigation bar
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         tableView.cellLayoutMarginsFollowReadableWidth = true
         
         tableView.dataSource = dataSource
