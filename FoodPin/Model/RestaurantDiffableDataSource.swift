@@ -18,17 +18,19 @@ class RestaurantDiffableDataSource: UITableViewDiffableDataSource<Section, Resta
         return true
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            // itemIdentifier is an optional so it could return a Restaurant or nil
-            if let restaurant = self.itemIdentifier(for: indexPath) {
-                // Get a copy of the data source's current snapshot
-                var snapshot = self.snapshot()
-                snapshot.deleteItems([restaurant])
-                // request table view to update it's UI with the updated snapshot
-                self.apply(snapshot, animatingDifferences: true)
-            }
-        }
-    }
+    // NOTE: This is now implemented in the RestaurantTableViewController
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        // Deleting a table view
+//        if editingStyle == .delete {
+//            // itemIdentifier is an optional so it could return a Restaurant or nil
+//            if let restaurant = self.itemIdentifier(for: indexPath) {
+//                // Get a copy of the data source's current snapshot
+//                var snapshot = self.snapshot()
+//                snapshot.deleteItems([restaurant])
+//                // request table view to update it's UI with the updated snapshot
+//                self.apply(snapshot, animatingDifferences: true)
+//            }
+//        }
+//    }
 }
