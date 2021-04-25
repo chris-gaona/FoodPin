@@ -175,7 +175,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r1k-E5-sdu">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="gY5-lW-EDa" userLabel="Header View">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="gY5-lW-EDa" userLabel="Header View" customClass="RestaurantDetailHeaderView" customModule="FoodPin" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="445"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -225,6 +225,12 @@
                                         <constraint firstAttribute="trailing" secondItem="XNf-Sd-k1c" secondAttribute="trailing" constant="150" id="w4e-lL-77V"/>
                                         <constraint firstItem="XNf-Sd-k1c" firstAttribute="leading" secondItem="gY5-lW-EDa" secondAttribute="leading" constant="20" id="zsQ-nb-pUz"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="headerImageView" destination="QbT-S7-t0t" id="vuf-X8-bSb"/>
+                                        <outlet property="heartButton" destination="7uh-Fc-Fmo" id="6QT-Pf-Yc9"/>
+                                        <outlet property="nameLabel" destination="EqZ-O0-8eN" id="fRS-ak-RZC"/>
+                                        <outlet property="typeLabel" destination="dSr-UZ-twY" id="3Fj-Qs-Dzl"/>
+                                    </connections>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8Uv-w7-UMA">
@@ -256,6 +262,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2GI-Gz-7gj"/>
+                    <connections>
+                        <outlet property="headerView" destination="gY5-lW-EDa" id="p74-0W-ktc"/>
+                        <outlet property="tableView" destination="r1k-E5-sdu" id="eRD-4f-0Dw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YyA-1c-bgW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

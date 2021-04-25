@@ -11,6 +11,7 @@
 		F25559D22634C0A8000AFD25 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25559D12634C0A8000AFD25 /* RestaurantDetailViewController.swift */; };
 		F25559D926361B15000AFD25 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F25559D726361AD3000AFD25 /* Nunito-Bold.ttf */; };
 		F25559DA26361B15000AFD25 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F25559D826361AD3000AFD25 /* Nunito-Regular.ttf */; };
+		F25559DD26361F25000AFD25 /* RestaurantDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25559DC26361F25000AFD25 /* RestaurantDetailHeaderView.swift */; };
 		F27B2F01263261C000BFDA57 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27B2F00263261BF00BFDA57 /* Restaurant.swift */; };
 		F29499D2262E4A1000558970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29499D1262E4A1000558970 /* AppDelegate.swift */; };
 		F29499D4262E4A1000558970 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29499D3262E4A1000558970 /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 		F25559D12634C0A8000AFD25 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		F25559D726361AD3000AFD25 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Bold.ttf"; path = "../../../../../Downloads/Nunito/Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		F25559D826361AD3000AFD25 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Regular.ttf"; path = "../../../../../Downloads/Nunito/Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		F25559DC26361F25000AFD25 /* RestaurantDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailHeaderView.swift; sourceTree = "<group>"; };
 		F27B2F00263261BF00BFDA57 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F29499CE262E4A1000558970 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29499D1262E4A1000558970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				F29499EA262E683D00558970 /* RestaurantTableViewCell.swift */,
+				F25559DC26361F25000AFD25 /* RestaurantDetailHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				F29499D4262E4A1000558970 /* SceneDelegate.swift in Sources */,
 				F25559CC26346C3A000AFD25 /* RestaurantDiffableDataSource.swift in Sources */,
 				F25559D22634C0A8000AFD25 /* RestaurantDetailViewController.swift in Sources */,
+				F25559DD26361F25000AFD25 /* RestaurantDetailHeaderView.swift in Sources */,
 				F29499E8262E4BFF00558970 /* RestaurantTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
