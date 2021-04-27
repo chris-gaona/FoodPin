@@ -40,6 +40,8 @@ class RestaurantTableViewController: UITableViewController {
         
         // Use large title in the navigation bar
         navigationController?.navigationBar.prefersLargeTitles = true
+        // Remove the back button title text
+        navigationItem.backButtonTitle = ""
         
         if let appearance = navigationController?.navigationBar.standardAppearance {
             appearance.configureWithTransparentBackground()
@@ -53,9 +55,6 @@ class RestaurantTableViewController: UITableViewController {
             navigationController?.navigationBar.compactAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
         }
-        
-        // Remove the back button title text
-        navigationItem.backButtonTitle = ""
         
         tableView.cellLayoutMarginsFollowReadableWidth = true
         
@@ -77,6 +76,7 @@ class RestaurantTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         navigationController?.hidesBarsOnSwipe = true
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // MARK: -  UITableView Diffable Data Source
