@@ -41,6 +41,22 @@ class RestaurantTableViewController: UITableViewController {
         // Use large title in the navigation bar
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        if let appearance = navigationController?.navigationBar.standardAppearance {
+            appearance.configureWithTransparentBackground()
+            
+            if let customFont = UIFont(name: "Nunito-Bold", size: 45.0) {
+                appearance.titleTextAttributes = [.foregroundColor: UIColor(red: 218/255, green: 96/255, blue: 51/255, alpha: 1.0)]
+                appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(red: 218/255, green: 96/255, blue: 51/255, alpha: 1.0), .font: customFont]
+            }
+            
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+        
+        // Remove the back button title text
+        navigationItem.backButtonTitle = ""
+        
         tableView.cellLayoutMarginsFollowReadableWidth = true
         
         // Setup the data source of the table view

@@ -17,7 +17,7 @@ class RestaurantDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationController?.navigationBar.prefersLargeTitles = false
         
         // Configure header view
         headerView.nameLabel.text = restaurant.name
@@ -34,6 +34,9 @@ class RestaurantDetailViewController: UIViewController {
         
         // Remove cell separator from table
         tableView.separatorStyle = .none
+        
+        // The following shifts the table view upwards towards the top edge of the screen
+        tableView.contentInsetAdjustmentBehavior = .never
     }
 }
 
