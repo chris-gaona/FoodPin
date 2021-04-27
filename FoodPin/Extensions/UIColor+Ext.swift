@@ -7,6 +7,8 @@
 
 import UIKit
 
+/* Unused but left for reference */
+
 // To declare an extension for an existing class, you start with the keyword extension followed by the class you want to extend.
 extension UIColor {
     // Additional convenience initializer that accepts three parameters
