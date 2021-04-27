@@ -54,7 +54,7 @@ class RestaurantDetailViewController: UIViewController {
 extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,6 +73,11 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
             cell.column1TextLabel.text = restaurant.location
             cell.column2TitleLabel.text = "Phone"
             cell.column2TextLabel.text = restaurant.phone
+            
+            return cell
+            
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
             
             return cell
             

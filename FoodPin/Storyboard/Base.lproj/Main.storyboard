@@ -169,11 +169,11 @@
             <objects>
                 <viewController id="dvg-t7-NhE" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GMt-pF-1Vy">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r1k-E5-sdu">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="gY5-lW-EDa" userLabel="Header View" customClass="RestaurantDetailHeaderView" customModule="FoodPin" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="445"/>
@@ -326,6 +326,31 @@
                                             <outlet property="column2TitleLabel" destination="7LN-rT-HaY" id="xpe-AS-pNz"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantDetailMapCell" id="FCG-b4-ZXs" userLabel="RestaurantDetailTwoColumnCell" customClass="RestaurantDetailMapCell" customModule="FoodPin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="586.66666793823242" width="390" height="220.33332824707031"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FCG-b4-ZXs" id="wET-VF-cjL">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="220.33332824707031"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNb-Mp-7DN">
+                                                    <rect key="frame" x="20" y="10" width="350" height="200.33333333333334"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="AlV-Xr-2Me"/>
+                                                    </constraints>
+                                                </mapView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fNb-Mp-7DN" firstAttribute="top" secondItem="wET-VF-cjL" secondAttribute="top" constant="10" id="4zI-gQ-z2n"/>
+                                                <constraint firstAttribute="trailing" secondItem="fNb-Mp-7DN" secondAttribute="trailing" constant="20" id="6Q8-Yu-2no"/>
+                                                <constraint firstItem="fNb-Mp-7DN" firstAttribute="leading" secondItem="wET-VF-cjL" secondAttribute="leading" constant="20" id="Aa6-QT-epa"/>
+                                                <constraint firstAttribute="bottom" secondItem="fNb-Mp-7DN" secondAttribute="bottom" constant="10" id="RLX-zl-E5i"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mapView" destination="fNb-Mp-7DN" id="LRv-9o-D3d"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -339,6 +364,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2GI-Gz-7gj"/>
+                    <size key="freeformSize" width="390" height="1000"/>
                     <connections>
                         <outlet property="headerView" destination="gY5-lW-EDa" id="p74-0W-ktc"/>
                         <outlet property="tableView" destination="r1k-E5-sdu" id="eRD-4f-0Dw"/>
