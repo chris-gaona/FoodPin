@@ -73,6 +73,12 @@ class RestaurantTableViewController: UITableViewController {
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
     // MARK: -  UITableView Diffable Data Source
     func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant> {
         let cellIdentifier = "datacell"

@@ -17,8 +17,6 @@ class RestaurantDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationController?.navigationBar.prefersLargeTitles = false
-        
         // Configure header view
         headerView.nameLabel.text = restaurant.name
         headerView.typeLabel.text = restaurant.type
@@ -37,6 +35,15 @@ class RestaurantDetailViewController: UIViewController {
         
         // The following shifts the table view upwards towards the top edge of the screen
         tableView.contentInsetAdjustmentBehavior = .never
+    }
+    
+    // viewWillAppear is used when the controller is about to appear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Make sure the navigation bar is showing
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
 
