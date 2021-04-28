@@ -78,6 +78,9 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
+            // configure method is defined in RestaurantDetailMapCell
+            cell.configure(location: restaurant.location)
+            cell.selectionStyle = .none
             
             return cell
             
