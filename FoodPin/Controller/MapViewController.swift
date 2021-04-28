@@ -19,6 +19,10 @@ class MapViewController: UIViewController {
         
         // Define MapViewController as the delegate object of mapView
         mapView.delegate = self
+        
+        mapView.showsCompass = true
+        mapView.showsScale = true
+        mapView.showsTraffic = true
 
         // Convert address to coordinate and annotate it on the map
         let geoCoder = CLGeocoder()
@@ -48,6 +52,14 @@ class MapViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Make sure the navigation bar is showing
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
 
