@@ -16,6 +16,9 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Define MapViewController as the delegate object of mapView
+        mapView.delegate = self
 
         // Convert address to coordinate and annotate it on the map
         let geoCoder = CLGeocoder()
@@ -45,5 +48,32 @@ class MapViewController: UIViewController {
                 }
             }
         })
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    // We are basically overriding the viewFor method provided by mapView
+    // Every time when the map view needs to display an annotation, the following method will be called
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MyMarker"
+        
+        // Checks if the current annotation is for annotating a user's current location
+        // If so we don't want to modify that annotation
+        if annotation.isKind(of: MKUserLocation.self) {
+            return nil
+        }
+        
+        // Reuse the annotation if possible - as? is a downcasting to MKMarkerAnnotationView
+        var annotationView: MKMarkerAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        
+//        annotationView?.glyphText = "  "
+        annotationView?.glyphImage = UIImage(systemName: "arrowtriangle.down.circle")
+        annotationView?.markerTintColor = UIColor.orange
+        
+        return annotationView
     }
 }
