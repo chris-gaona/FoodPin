@@ -49,6 +49,15 @@ class RestaurantDetailViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMap" {
+            let destinationController = segue.destination as! MapViewController
+            
+            // Assigning restuarant found in MapViewController with a value here
+            destinationController.restaurant = restaurant
+        }
+    }
 }
 
 extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDelegate {
