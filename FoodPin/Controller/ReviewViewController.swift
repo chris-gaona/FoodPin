@@ -11,6 +11,7 @@ class ReviewViewController: UIViewController {
     
     @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var rateButtons: [UIButton]!
+    @IBOutlet var closeButton: UIButton!
     
     var restaurant = Restaurant()
 
@@ -37,6 +38,10 @@ class ReviewViewController: UIViewController {
             rateButton.alpha = 0
             rateButton.transform = moveScaleTransform
         }
+        
+        let moveUpTransform = CGAffineTransform.init(translationX: 0, y: -5000)
+        closeButton.alpha = 0
+        closeButton.transform = moveUpTransform
     }
     
     // This is called after viewDidLoad when the view is about to appear on the screen
@@ -76,5 +81,11 @@ class ReviewViewController: UIViewController {
             self.rateButtons[4].alpha = 1.0
             self.rateButtons[4].transform = .identity
         }, completion: nil)
+        
+        // Adds fade in & slide in from top effect on close button
+        UIView.animate(withDuration: 0.4, delay: 0.3, animations: {
+            self.closeButton.alpha = 1.0
+            self.closeButton.transform = .identity
+        })
     }
 }
