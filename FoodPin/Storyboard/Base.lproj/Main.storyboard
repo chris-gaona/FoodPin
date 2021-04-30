@@ -502,6 +502,11 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="rZj-mW-V0o" id="azT-Eu-op0"/>
+                        <outletCollection property="rateButtons" destination="Deo-c3-yD0" collectionClass="NSMutableArray" id="VNQ-Xn-eWg"/>
+                        <outletCollection property="rateButtons" destination="bsT-Dn-8y4" collectionClass="NSMutableArray" id="5eB-2K-kT2"/>
+                        <outletCollection property="rateButtons" destination="o2B-q5-wcD" collectionClass="NSMutableArray" id="l3p-2M-oHa"/>
+                        <outletCollection property="rateButtons" destination="nvH-gz-Vf2" collectionClass="NSMutableArray" id="YA2-iB-DTD"/>
+                        <outletCollection property="rateButtons" destination="kyC-lM-JMm" collectionClass="NSMutableArray" id="aBL-se-9Br"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVS-Iu-eyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
