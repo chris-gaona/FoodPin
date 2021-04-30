@@ -28,11 +28,14 @@ class ReviewViewController: UIViewController {
         backgroundImageView.addSubview(blurEffectView)
         
         let moveRightTransform = CGAffineTransform.init(translationX: 600, y: 0)
+        let scaleUpTransform = CGAffineTransform.init(scaleX: 5.0, y: 5.0)
+        // The following combines transforms together
+        let moveScaleTransform = scaleUpTransform.concatenating(moveRightTransform)
         
         // Make the buttons invisible
         for rateButton in rateButtons {
             rateButton.alpha = 0
-            rateButton.transform = moveRightTransform
+            rateButton.transform = moveScaleTransform
         }
     }
     
@@ -48,28 +51,28 @@ class ReviewViewController: UIViewController {
 //        })
         
         // Adds fade in effect to buttons - each buttons fades in slightly after the other
-        UIView.animate(withDuration: 0.4, delay: 0.1, options: [], animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
             self.rateButtons[0].alpha = 1.0
             // Setting the button's transform back to .identity resets it to its original position
             self.rateButtons[0].transform = .identity
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.4, delay: 0.15, options: [], animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.15, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
             self.rateButtons[1].alpha = 1.0
             self.rateButtons[1].transform = .identity
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.4, delay: 0.2, options: [], animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
             self.rateButtons[2].alpha = 1.0
             self.rateButtons[2].transform = .identity
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.4, delay: 0.25, options: [], animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.25, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
             self.rateButtons[3].alpha = 1.0
             self.rateButtons[3].transform = .identity
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.4, delay: 0.3, options: [], animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.3, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
             self.rateButtons[4].alpha = 1.0
             self.rateButtons[4].transform = .identity
         }, completion: nil)
