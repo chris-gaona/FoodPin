@@ -16,6 +16,20 @@ class RestaurantDetailViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func rateRestaurant(segue: UIStoryboardSegue) {
+        // Make sure an identifier exists first
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        if let rating = Restaurant.Rating(rawValue: identifier) {
+            self.restaurant.rating = rating
+            self.headerView.ratingImageView.image = UIImage(named: rating.image)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     var restaurant: Restaurant = Restaurant()
 
     override func viewDidLoad() {

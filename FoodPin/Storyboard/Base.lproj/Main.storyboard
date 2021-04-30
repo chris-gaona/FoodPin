@@ -187,6 +187,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="445"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5p0-wx-aTl">
+                                            <rect key="frame" x="318" y="375" width="52" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="iuT-pg-mU6"/>
+                                                <constraint firstAttribute="width" constant="52" id="vQ5-g1-a9b"/>
+                                            </constraints>
+                                        </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XNf-Sd-k1c">
                                             <rect key="frame" x="20" y="368" width="220" height="57"/>
                                             <subviews>
@@ -221,8 +228,10 @@
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="QbT-S7-t0t" secondAttribute="bottom" id="8LR-Tp-9Ki"/>
                                         <constraint firstAttribute="trailing" secondItem="QbT-S7-t0t" secondAttribute="trailing" id="GpK-j4-1Kn"/>
+                                        <constraint firstItem="XNf-Sd-k1c" firstAttribute="bottom" secondItem="5p0-wx-aTl" secondAttribute="bottom" id="LWS-ZA-xwv"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="8mz-MH-LjS" secondAttribute="trailing" constant="10" id="T2G-k3-QXa"/>
                                         <constraint firstItem="QbT-S7-t0t" firstAttribute="top" secondItem="gY5-lW-EDa" secondAttribute="top" id="VUx-Ew-GCq"/>
+                                        <constraint firstAttribute="trailing" secondItem="5p0-wx-aTl" secondAttribute="trailing" constant="20" id="WAd-86-8Yh"/>
                                         <constraint firstItem="XXM-2Q-b03" firstAttribute="leading" secondItem="gY5-lW-EDa" secondAttribute="leading" id="XNT-Vl-sEs"/>
                                         <constraint firstItem="8mz-MH-LjS" firstAttribute="top" secondItem="gY5-lW-EDa" secondAttribute="topMargin" constant="10" id="fFY-2K-JjW"/>
                                         <constraint firstAttribute="trailing" secondItem="XXM-2Q-b03" secondAttribute="trailing" id="hHO-1t-PID"/>
@@ -237,6 +246,7 @@
                                         <outlet property="headerImageView" destination="QbT-S7-t0t" id="vuf-X8-bSb"/>
                                         <outlet property="heartButton" destination="8mz-MH-LjS" id="oWA-ip-WX1"/>
                                         <outlet property="nameLabel" destination="EqZ-O0-8eN" id="fRS-ak-RZC"/>
+                                        <outlet property="ratingImageView" destination="5p0-wx-aTl" id="cCa-h9-bab"/>
                                         <outlet property="typeLabel" destination="dSr-UZ-twY" id="3Fj-Qs-Dzl"/>
                                     </connections>
                                 </view>
@@ -463,26 +473,41 @@
                                         <rect key="frame" x="0.0" y="0.0" width="210" height="82"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <state key="normal" title="Awesome" image="love"/>
+                                        <connections>
+                                            <segue destination="r4y-h6-GUf" kind="unwind" identifier="awesome" unwindAction="rateRestaurantWithSegue:" id="PiB-tl-5vu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsT-Dn-8y4">
                                         <rect key="frame" x="0.0" y="92" width="152" height="83"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <state key="normal" title="Good" image="cool"/>
+                                        <connections>
+                                            <segue destination="r4y-h6-GUf" kind="unwind" identifier="good" unwindAction="rateRestaurantWithSegue:" id="Pb8-Fb-rvZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2B-q5-wcD">
                                         <rect key="frame" x="0.0" y="185.00000000000003" width="148" height="85.999999999999972"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <state key="normal" title="Okay" image="happy"/>
+                                        <connections>
+                                            <segue destination="r4y-h6-GUf" kind="unwind" identifier="okay" unwindAction="rateRestaurantWithSegue:" id="Nrv-OC-5Ns"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvH-gz-Vf2">
                                         <rect key="frame" x="0.0" y="281" width="131" height="87"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <state key="normal" title="Bad" image="sad"/>
+                                        <connections>
+                                            <segue destination="r4y-h6-GUf" kind="unwind" identifier="bad" unwindAction="rateRestaurantWithSegue:" id="nUR-PU-UKH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyC-lM-JMm">
                                         <rect key="frame" x="0.0" y="378" width="176" height="103"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <state key="normal" title="Terrible" image="angry"/>
+                                        <connections>
+                                            <segue destination="r4y-h6-GUf" kind="unwind" identifier="terrible" unwindAction="rateRestaurantWithSegue:" id="lWi-na-8bA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
