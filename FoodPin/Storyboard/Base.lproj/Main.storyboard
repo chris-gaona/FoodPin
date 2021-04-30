@@ -267,7 +267,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <segue destination="Gvt-z8-Fd3" kind="presentation" identifier="showReview" modalTransitionStyle="crossDissolve" id="jkW-9t-nGq"/>
+                                                <segue destination="Gvt-z8-Fd3" kind="presentation" identifier="showReview" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="jkW-9t-nGq"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -450,14 +450,14 @@
             <objects>
                 <viewController id="Gvt-z8-Fd3" customClass="ReviewViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ulq-cW-YJ2">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rZj-mW-V0o">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfT-NO-RBk">
-                                <rect key="frame" x="339" y="0.0" width="31" height="29.333333333333332"/>
+                                <rect key="frame" x="339" y="44" width="31" height="29.333333333333329"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="xmark" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
@@ -467,7 +467,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JMN-0n-i8s">
-                                <rect key="frame" x="90" y="154.66666666666663" width="210" height="481"/>
+                                <rect key="frame" x="90" y="181.66666666666663" width="210" height="481"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Deo-c3-yD0">
                                         <rect key="frame" x="0.0" y="0.0" width="210" height="82"/>
@@ -478,7 +478,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsT-Dn-8y4">
-                                        <rect key="frame" x="0.0" y="92" width="152" height="83"/>
+                                        <rect key="frame" x="0.0" y="92.000000000000028" width="152" height="83"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <state key="normal" title="Good" image="cool"/>
                                         <connections>
