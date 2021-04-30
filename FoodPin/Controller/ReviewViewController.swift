@@ -55,32 +55,16 @@ class ReviewViewController: UIViewController {
 //            self.rateButtons[4].alpha = 1.0
 //        })
         
-        // Adds fade in effect to buttons - each buttons fades in slightly after the other
-        UIView.animate(withDuration: 0.4, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
-            self.rateButtons[0].alpha = 1.0
-            // Setting the button's transform back to .identity resets it to its original position
-            self.rateButtons[0].transform = .identity
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 0.4, delay: 0.15, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
-            self.rateButtons[1].alpha = 1.0
-            self.rateButtons[1].transform = .identity
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 0.4, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
-            self.rateButtons[2].alpha = 1.0
-            self.rateButtons[2].transform = .identity
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 0.4, delay: 0.25, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
-            self.rateButtons[3].alpha = 1.0
-            self.rateButtons[3].transform = .identity
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 0.4, delay: 0.3, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
-            self.rateButtons[4].alpha = 1.0
-            self.rateButtons[4].transform = .identity
-        }, completion: nil)
+        var delay = 0.1
+        for index in 0..<rateButtons.count {
+            // Adds fade in effect to buttons - each buttons fades in slightly after the other
+            UIView.animate(withDuration: 0.4, delay: delay, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
+                self.rateButtons[index].alpha = 1.0
+                // Setting the button's transform back to .identity resets it to its original position
+                self.rateButtons[index].transform = .identity
+            }, completion: nil)
+            delay = delay + 0.05
+        }
         
         // Adds fade in & slide in from top effect on close button
         UIView.animate(withDuration: 0.4, delay: 0.3, animations: {
