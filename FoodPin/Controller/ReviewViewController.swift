@@ -55,15 +55,13 @@ class ReviewViewController: UIViewController {
 //            self.rateButtons[4].alpha = 1.0
 //        })
         
-        var delay = 0.1
         for index in 0..<rateButtons.count {
             // Adds fade in effect to buttons - each buttons fades in slightly after the other
-            UIView.animate(withDuration: 0.4, delay: delay, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
+            UIView.animate(withDuration: 0.4, delay: (0.1 + 0.05 * Double(index)), usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
                 self.rateButtons[index].alpha = 1.0
                 // Setting the button's transform back to .identity resets it to its original position
                 self.rateButtons[index].transform = .identity
             }, completion: nil)
-            delay = delay + 0.05
         }
         
         // Adds fade in & slide in from top effect on close button
