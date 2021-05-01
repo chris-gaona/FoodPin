@@ -13,6 +13,8 @@ class RestaurantTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet var emptyRestaurantView: UIView!
+    
     var restaurants: [Restaurant] = []
     
     lazy var dataSource = configureDataSource()
@@ -38,6 +40,10 @@ class RestaurantTableViewController: UITableViewController {
             navigationController?.navigationBar.compactAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
         }
+        
+        // Prepare the empty view
+        tableView.backgroundView = emptyRestaurantView
+        tableView.backgroundView?.isHidden = restaurants.count == 0 ? false : true
         
         tableView.cellLayoutMarginsFollowReadableWidth = true
         
