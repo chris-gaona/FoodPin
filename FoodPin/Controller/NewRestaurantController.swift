@@ -55,25 +55,30 @@ class NewRestaurantController: UITableViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        let nameValue = nameTextField.text!
-        let typeValue = typeTextField.text!
-        let addressValue = addressTextField.text!
-        let phoneValue = phoneTextField.text!
-        let descriptionValue = descriptionTextView.text!
+        let nameValue = nameTextField.text
+        let typeValue = typeTextField.text
+        let addressValue = addressTextField.text
+        let phoneValue = phoneTextField.text
+        let descriptionValue = descriptionTextView.text
         
         // Validation
         if (nameValue == "" || typeValue == "" || addressValue == "" || phoneValue == "" || descriptionValue == "") {
             let alertMessage = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
-            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertMessage.addAction(alertAction)
             self.present(alertMessage, animated: true, completion: nil)
+            
+            return
         }
         
         // Print to the console
-        print("Name: \(nameValue)")
-        print("Type: \(typeValue)")
-        print("Location: \(addressValue)")
-        print("Phone: \(phoneValue)")
-        print("Description: \(descriptionValue)")
+        print("Name: \(nameValue ?? "")")
+        print("Type: \(typeValue ?? "")")
+        print("Location: \(addressValue ?? "")")
+        print("Phone: \(phoneValue ?? "")")
+        print("Description: \(descriptionValue ?? "")")
+        
+        dismiss(animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -111,6 +116,8 @@ class NewRestaurantController: UITableViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
+    
+    // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Check if the first table cell or the UIImageView is being touched
