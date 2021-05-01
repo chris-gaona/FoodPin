@@ -251,7 +251,7 @@
                                     </constraints>
                                     <connections>
                                         <outlet property="headerImageView" destination="QbT-S7-t0t" id="vuf-X8-bSb"/>
-                                        <outlet property="heartButton" destination="8mz-MH-LjS" id="oWA-ip-WX1"/>
+                                        <outlet property="heartButton" destination="8mz-MH-LjS" id="aYy-XV-RIG"/>
                                         <outlet property="nameLabel" destination="EqZ-O0-8eN" id="fRS-ak-RZC"/>
                                         <outlet property="ratingImageView" destination="5p0-wx-aTl" id="cCa-h9-bab"/>
                                         <outlet property="typeLabel" destination="dSr-UZ-twY" id="3Fj-Qs-Dzl"/>
