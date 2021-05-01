@@ -45,6 +45,14 @@ class NewRestaurantController: UITableViewController {
             descriptionTextView.layer.masksToBounds = true
         }
     }
+    
+    @IBOutlet var photoImageView: UIImageView! {
+        didSet {
+            // Make the photo look pretty
+            photoImageView.layer.cornerRadius = 10.0
+            photoImageView.layer.masksToBounds = true
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +80,8 @@ class NewRestaurantController: UITableViewController {
                 // Verify the camera is available is it won't be on the simulator
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     let imagePicker = UIImagePickerController()
+                    // Letting the UIImagePickerController know the delegate will be handled in this controller
+                    imagePicker.delegate = self
                     imagePicker.allowsEditing = false
                     imagePicker.sourceType = .camera
                     
@@ -83,6 +93,8 @@ class NewRestaurantController: UITableViewController {
                 (action) in
                 if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                     let imagePicker = UIImagePickerController()
+                    // Letting the UIImagePickerController know the delegate will be handled in this controller
+                    imagePicker.delegate = self
                     imagePicker.allowsEditing = false
                     imagePicker.sourceType = .photoLibrary
                     
@@ -116,5 +128,19 @@ extension NewRestaurantController: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+extension NewRestaurantController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // With this method an "info" dictionary object is returned
+        // Downcast the image to UIImage to use in our app
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            photoImageView.image = selectedImage
+            photoImageView.contentMode = .scaleAspectFill
+            photoImageView.clipsToBounds = true
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
 }
