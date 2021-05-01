@@ -655,6 +655,12 @@
                                 <segue destination="jZU-hq-nRx" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="MCU-RD-ep2"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Scz-G2-SAg">
+                            <color key="tintColor" name="NavigationBarTitle"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="RA2-vn-V1v" id="Rim-cU-KmX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="390" height="1000"/>
                     <connections>

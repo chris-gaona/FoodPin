@@ -53,6 +53,28 @@ class NewRestaurantController: UITableViewController {
             photoImageView.layer.masksToBounds = true
         }
     }
+    
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        let nameValue = nameTextField.text!
+        let typeValue = typeTextField.text!
+        let addressValue = addressTextField.text!
+        let phoneValue = phoneTextField.text!
+        let descriptionValue = descriptionTextView.text!
+        
+        // Validation
+        if (nameValue == "" || typeValue == "" || addressValue == "" || phoneValue == "" || descriptionValue == "") {
+            let alertMessage = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertMessage, animated: true, completion: nil)
+        }
+        
+        // Print to the console
+        print("Name: \(nameValue)")
+        print("Type: \(typeValue)")
+        print("Location: \(addressValue)")
+        print("Phone: \(phoneValue)")
+        print("Description: \(descriptionValue)")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
