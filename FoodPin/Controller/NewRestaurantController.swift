@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import CoreData
 
 class NewRestaurantController: UITableViewController {
+    var restaurant: Restaurant!
     
     @IBOutlet var nameTextField: RoundedTextField! {
         didSet {
@@ -71,12 +73,24 @@ class NewRestaurantController: UITableViewController {
             return
         }
         
-        // Print to the console
-        print("Name: \(nameValue ?? "")")
-        print("Type: \(typeValue ?? "")")
-        print("Location: \(addressValue ?? "")")
-        print("Phone: \(phoneValue ?? "")")
-        print("Description: \(descriptionValue ?? "")")
+        // Save the data in CoreData
+        // In order to access persistentContainer in AppDelegate, we use the following line to get a reference to AppDelegate
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            restaurant = Restaurant(context: appDelegate.persistentContainer.viewContext)
+            restaurant.name = nameValue!
+            restaurant.type = typeValue!
+            restaurant.location = addressValue!
+            restaurant.phone = phoneValue!
+            restaurant.summary = descriptionValue!
+            restaurant.isFavorite = false
+            
+            if let imageData = photoImageView.image?.pngData() {
+                restaurant.image = imageData
+            }
+            
+            print("Saving data to context...")
+            appDelegate.saveContext()
+        }
         
         dismiss(animated: true, completion: nil)
     }
