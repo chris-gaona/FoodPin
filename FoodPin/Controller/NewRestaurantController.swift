@@ -138,6 +138,8 @@ class NewRestaurantController: UITableViewController {
         if indexPath.row == 0 {
             let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
             
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {
                 (action) in
                 // Verify the camera is available is it won't be on the simulator
@@ -165,6 +167,7 @@ class NewRestaurantController: UITableViewController {
                 }
             })
             
+            photoSourceRequestController.addAction(cancelAction)
             photoSourceRequestController.addAction(cameraAction)
             photoSourceRequestController.addAction(photoLibraryAction)
             
