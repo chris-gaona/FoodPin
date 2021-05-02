@@ -6,18 +6,21 @@
 //
 
 import UIKit
+import CoreData
 
 class RestaurantTableViewController: UITableViewController {
+    var fetchResultController: NSFetchedResultsController<Restaurant>!
+    
+    var restaurants: [Restaurant] = []
+    
+    lazy var dataSource = configureDataSource()
+    
     // Adds an unwind that storyboard will recognize & can be connected using control key to drag for button to Exit icon
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet var emptyRestaurantView: UIView!
-    
-    var restaurants: [Restaurant] = []
-    
-    lazy var dataSource = configureDataSource()
 
     // MARK: - View controller life cycle
     override func viewDidLoad() {
@@ -53,12 +56,7 @@ class RestaurantTableViewController: UITableViewController {
         // Remove the cell separator
         tableView.separatorStyle = .none
         
-        // Create a snapshot & populate the data
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Restaurant>()
-        snapshot.appendSections([.all])
-        snapshot.appendItems(restaurants, toSection: .all)
-        
-        dataSource.apply(snapshot, animatingDifferences: false)
+        fetchRestaurantData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +64,42 @@ class RestaurantTableViewController: UITableViewController {
         
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func fetchRestaurantData() {
+        // Fetch data from data store
+        let fetchRequest: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+        // Sort in ascending order using the name key
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            
+            do {
+                try fetchResultController.performFetch()
+                updateSnapshot()
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    func updateSnapshot(animatingChange: Bool = false) {
+        if let fetchedObjects = fetchResultController.fetchedObjects {
+            restaurants = fetchedObjects
+        }
+        
+        // Create a snapshot & populate the data
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Restaurant>()
+        snapshot.appendSections([.all])
+        snapshot.appendItems(restaurants, toSection: .all)
+        
+        dataSource.apply(snapshot, animatingDifferences: animatingChange)
+        
+        tableView.backgroundView?.isHidden = restaurants.count == 0 ? false : true
     }
     
     // MARK: -  UITableView Diffable Data Source
@@ -230,5 +264,11 @@ class RestaurantTableViewController: UITableViewController {
                 destinationController.restaurant = self.restaurants[indexPath.row]
             }
         }
+    }
+}
+
+extension RestaurantTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        updateSnapshot()
     }
 }
