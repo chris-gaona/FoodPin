@@ -6,7 +6,7 @@
         <attribute name="location" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="phone" attributeType="String"/>
-        <attribute name="ratingText" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="ratingText" optional="YES" attributeType="String"/>
         <attribute name="summary" attributeType="String"/>
         <attribute name="type" attributeType="String"/>
     </entity>

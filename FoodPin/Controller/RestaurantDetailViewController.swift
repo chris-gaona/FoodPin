@@ -9,6 +9,8 @@ import UIKit
 
 class RestaurantDetailViewController: UIViewController {
     
+    var restaurant: Restaurant!
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var headerView: RestaurantDetailHeaderView!
     
@@ -28,18 +30,20 @@ class RestaurantDetailViewController: UIViewController {
                 self.headerView.ratingImageView.image = UIImage(named: rating.image)
             }
             
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                appDelegate.saveContext()
+            }
+            
             let scaleTransform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
             self.headerView.ratingImageView.transform = scaleTransform
             self.headerView.ratingImageView.alpha = 0
             
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.7, options: [], animations: {
                 self.headerView.ratingImageView.transform = .identity
-                self.headerView.ratingImageView.alpha = 1.0
+                self.headerView.ratingImageView.alpha = 1
             }, completion: nil)
         })
     }
-    
-    var restaurant: Restaurant = Restaurant()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +68,11 @@ class RestaurantDetailViewController: UIViewController {
         
         // The following shifts the table view upwards towards the top edge of the screen
         tableView.contentInsetAdjustmentBehavior = .never
+        
+        // Makes the rating display when this screen is first loaded
+        if let rating = restaurant.rating {
+            headerView.ratingImageView.image = UIImage(named: rating.image)
+        }
     }
     
     // viewWillAppear is used when the controller is about to appear

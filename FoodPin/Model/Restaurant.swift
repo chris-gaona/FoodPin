@@ -6,11 +6,12 @@
 //
 
 import CoreData
+
 public class Restaurant: NSManagedObject {
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Restaurant
-> {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Restaurant> {
         return NSFetchRequest<Restaurant>(entityName: "Restaurant")
     }
+    
     @NSManaged public var name: String
     @NSManaged public var type: String
     @NSManaged public var location: String
