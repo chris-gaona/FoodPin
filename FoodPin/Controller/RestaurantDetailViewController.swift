@@ -13,6 +13,7 @@ class RestaurantDetailViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var headerView: RestaurantDetailHeaderView!
+    @IBOutlet var favoriteBarButton: UIBarButtonItem!
     
     @IBAction func close(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
@@ -44,20 +45,36 @@ class RestaurantDetailViewController: UIViewController {
             }, completion: nil)
         })
     }
+    
+    @IBAction func saveFavorite() {
+        restaurant.isFavorite.toggle()
+        
+        configureFavoriteIcon()
+        
+        // Save the changes to the database
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            appDelegate.saveContext()
+        }
+    }
+    
+    func configureFavoriteIcon() {
+        let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
+        let heartIconConfiguration = UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold)
+        favoriteBarButton.tintColor = restaurant.isFavorite ? .systemYellow : .white
+        favoriteBarButton.image = UIImage(systemName: heartImage, withConfiguration: heartIconConfiguration)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.backButtonTitle = ""
         
+        configureFavoriteIcon()
+        
         // Configure header view
         headerView.nameLabel.text = restaurant.name
         headerView.typeLabel.text = restaurant.type
         headerView.headerImageView.image = UIImage(data: restaurant.image)
-        
-        let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
-        headerView.heartButton.tintColor = restaurant.isFavorite ? .systemYellow : .white
-        headerView.heartButton.setImage(UIImage(systemName: heartImage), for: .normal)
         
         // Configure data source
         tableView.delegate = self
