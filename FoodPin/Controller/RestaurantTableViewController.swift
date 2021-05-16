@@ -10,6 +10,7 @@ import CoreData
 
 class RestaurantTableViewController: UITableViewController {
     var fetchResultController: NSFetchedResultsController<Restaurant>!
+    var searchController: UISearchController!
     
     var restaurants: [Restaurant] = []
     
@@ -56,6 +57,13 @@ class RestaurantTableViewController: UITableViewController {
         // Remove the cell separator
         tableView.separatorStyle = .none
         
+        searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
+        // Assigns the current class as the search results updater
+        searchController.searchResultsUpdater = self
+        // Controls whether the underlying content is dimmed during search
+        searchController.obscuresBackgroundDuringPresentation = false
+        
         fetchRestaurantData()
     }
     
@@ -66,9 +74,14 @@ class RestaurantTableViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    func fetchRestaurantData() {
+    func fetchRestaurantData(searchText: String = "") {
         // Fetch data from data store
         let fetchRequest: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+        
+        if !searchText.isEmpty {
+            fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@", searchText)
+        }
+        
         // Sort in ascending order using the name key
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -80,7 +93,8 @@ class RestaurantTableViewController: UITableViewController {
             
             do {
                 try fetchResultController.performFetch()
-                updateSnapshot()
+                // Animate the updating of the snapshot for when user is searching for specific results
+                updateSnapshot(animatingChange: searchText.isEmpty ? false : true)
             } catch {
                 print(error)
             }
@@ -173,6 +187,11 @@ class RestaurantTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+        // Don't show the swipe actions if user is searching...return an empty configuration instead
+        if searchController.isActive {
+            return UISwipeActionsConfiguration()
+        }
+        
         // Get the selected restaurant
         guard let restaurant = self.dataSource.itemIdentifier(for: indexPath)
         else {
@@ -245,6 +264,11 @@ class RestaurantTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+        // Don't show the swipe actions if user is searching...return an empty configuration instead
+        if searchController.isActive {
+            return UISwipeActionsConfiguration()
+        }
+        
         let favoriteAction = UIContextualAction(style: .normal, title: "") {
             (action, sourceView, completionHandler) in
             
@@ -282,5 +306,15 @@ class RestaurantTableViewController: UITableViewController {
 extension RestaurantTableViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         updateSnapshot()
+    }
+}
+
+extension RestaurantTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else {
+            return
+        }
+        
+        fetchRestaurantData(searchText: searchText)
     }
 }
