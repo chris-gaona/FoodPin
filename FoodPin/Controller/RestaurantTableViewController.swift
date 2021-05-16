@@ -87,7 +87,13 @@ class RestaurantTableViewController: UITableViewController {
         let fetchRequest: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
         
         if !searchText.isEmpty {
-            fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@", searchText)
+            // One way of doing the OR query
+//            let predicateName: NSPredicate = NSPredicate(format: "name CONTAINS[c] %@", searchText)
+//            let predicateLocation: NSPredicate = NSPredicate(format: "location CONTAINS[c] %@", searchText)
+//            fetchRequest.predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [predicateName, predicateLocation])
+            
+            // Another way of doing the OR query
+            fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
         }
         
         // Sort in ascending order using the name key
