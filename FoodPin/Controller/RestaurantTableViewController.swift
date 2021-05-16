@@ -58,11 +58,19 @@ class RestaurantTableViewController: UITableViewController {
         tableView.separatorStyle = .none
         
         searchController = UISearchController(searchResultsController: nil)
-        self.navigationItem.searchController = searchController
+//        // Places the search bar at the top of the list
+//        self.navigationItem.searchController = searchController
+        // Places the search bar in the table's header view
+        tableView.tableHeaderView = searchController.searchBar
         // Assigns the current class as the search results updater
         searchController.searchResultsUpdater = self
         // Controls whether the underlying content is dimmed during search
         searchController.obscuresBackgroundDuringPresentation = false
+        
+        // Modify the style of the search bar
+        searchController.searchBar.placeholder = "Search restaurants..."
+        searchController.searchBar.backgroundImage = UIImage()
+        searchController.searchBar.tintColor = UIColor(named: "NavigationBarTitle")
         
         fetchRestaurantData()
     }
